@@ -1,0 +1,11 @@
+<i-panel title="请输入教务系统的账号">
+    <i-input value="{{ studentId }}" title="学号" type = "number" autofocus placeholder="请输入学号" maxlength = "20" bind:change = "idChange"/>
+    <i-input value="{{ studentPassword }}" type="password" title="密码" placeholder="请输入密码" maxlength = "20" bind:change = "pwdChange"/>
+</i-panel>
+<i-panel title="请选择类别">
+    <i-radio-group current="{{current}}" bindchange="handleFruitChange">
+        <i-radio wx:for="{{types}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
+        </i-radio>
+    </i-radio-group>
+</i-panel>
+<i-button bind:click="handleBind" type="primary" long="true">绑定账号</i-button>

@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/curriculum/curriculum",
+    "pages/bindAccount/bindAccount"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "i-button": "./dist/button/index",
+    "i-row": "./dist/row/index",
+    "i-col": "./dist/col/index",
+    "i-tab-bar": "./dist/tab-bar/index",
+    "i-tab-bar-item": "./dist/tab-bar-item/index",
+    "i-grid": "./dist/grid/index",
+    "i-grid-item": "./dist/grid-item/index",
+    "i-grid-icon": "./dist/grid-icon/index",
+    "i-grid-label": "./dist/grid-label/index",
+    "i-icon": "./dist/icon/index",
+    "i-notice-bar": "./dist/notice-bar/index",
+    "i-sticky": "./dist/sticky/index",
+    "i-sticky-item": "./dist/sticky-item/index",
+    "i-tag": "./dist/tag/index",
+    "i-modal": "./dist/modal/index",
+    "i-input": "./dist/input/index",
+    "i-panel": "./dist/panel/index",
+    "i-radio-group": "./dist/radio-group/index",
+    "i-radio": "./dist/radio/index"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/curriculum/curriculum",
+        "text": "课程"
+      }
+    ]
+  }
+}

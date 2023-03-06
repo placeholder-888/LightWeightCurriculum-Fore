@@ -1,0 +1,71 @@
+<i-notice-bar icon="systemprompt" loop>
+    2018年世界杯,将于6月14日至7月15日举行;2018年世界杯,将于6月14日至7月15日举行;
+</i-notice-bar>
+<i-grid>
+    <i-row>
+        <i-grid-item bindtap = "goToLogin">
+            <i-grid-icon>
+                <i-icon size="24" type="activity" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="addressbook" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="barrage" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+    </i-row>
+    <i-row>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="collection" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="computer" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="coupons" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+    </i-row>
+    <i-row>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="flag" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="interactive" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="mail" />
+                <i-grid-label>宫格</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+    </i-row>
+</i-grid>
+
+<i-tab-bar current="{{ current }}" bindchange="handleChange" fixed = "true" color="green">
+    <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="首页"></i-tab-bar-item>
+    <i-tab-bar-item key="curriculum" icon="createtask" current-icon="createtask_fill" title="课程表"></i-tab-bar-item>
+    <i-tab-bar-item key="infocenter" icon="mine" current-icon="mine_fill" title="个人中心"></i-tab-bar-item>
+</i-tab-bar>

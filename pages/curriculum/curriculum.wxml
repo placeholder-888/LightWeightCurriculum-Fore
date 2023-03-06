@@ -1,0 +1,86 @@
+<!--pages/schedule/schedule.wxml-->
+<i-modal title="请您绑定账号" visible="{{ visible }}" actions="{{ actions }}" action-mode="{{ vertical }}" bind:click="handleClick" catchtouchmove = "true">
+  <view><text>您还没有绑定账号!</text></view>
+</i-modal>
+
+<!-- FIXME 修改样式 -->
+<view class="nav-head">
+  <view class="img-button add-course-btn" bindtap="addCourseHandler">
+    <i-icon type="editor" />
+  </view>
+  <view class="week-selector">
+    <view class="img-button pre-week-btn" bindtap="prevWeekHandler">
+      <i-icon type="return" />
+    </view>
+    <view class="cur-week">
+      <view class="week">第{{curWeek}}周</view>
+      <!-- <view class="title">{{curTitle}}</view> -->
+      <view class="title">xxxx-xxxx第一学期</view>
+    </view>
+    <view class="img-button next-week-btn" bindtap="nextWeekHandler">
+      <i-icon type="enter" />
+    </view>
+  </view>
+  <view class="img-button feedback-btn" bindtap="feedbackHandler">
+    <i-icon type="refresh" />
+  </view>
+</view>
+
+<view class="tab-top">
+  <!-- TODO 让周的样式更加好看 -->
+  <view class="cur-month">第{{curWeek}}周</view>
+  <view class="week-list">
+    <view wx:for="{{weekDates}}" wx:key="*this" class="day-text {{todayIndex == index ? 'active' : ''}}">
+      <text>{{weekLabels[index]}}</text>
+      <text style="font-size:11px">{{item}}</text>
+    </view>
+  </view>
+</view>
+
+<scroll-view scroll-y="{{visible ? false : true}}" class="tab-scroll">
+  <view class="tab-container">
+    <!--分节-->
+    <!-- <view class="tab-divide">
+      <view wx:for="{{['上午', '下午', '晚上']}}" wx:key="*this" class="tab-divide-item">
+        <text>{{item}}</text>
+      </view>
+    </view> -->
+    <view class="tab-section">
+      <view wx:for="{{[1,2,3]}}" wx:key="*this" wx:for-index="index1"  class="tab-section-divide">
+        <view wx:for="{{[1,2,3,4]}}" wx:for-item="item2" wx:key="*this" class="tab-section-item">
+          <text>{{item2 + index1 * 4}}\n{{courseTimes[item2 + index1 * 4 - 1]}}</text>
+        </view>
+      </view>
+      <view class="tab-section-item"></view>
+    </view>
+
+    <!--课程-->
+    <!-- <view>
+      <view class="course-item" bindtap="showCardView">
+        <view class="course-item-inner" style="background-color:red;height: 108px;" >
+            <text>计算机基础</text>
+        </view>
+      </view>
+    </view> -->
+    <view wx:for="{{weekCoursesColors}}" wx:key="id" wx:for-index="i" class="course-item" style="height:{{(weekAvailCourses[i].courseEnd - weekAvailCourses[i].courseStart + 1) * 54}}px;margin-top:{{(weekAvailCourses[i].courseStart - 1) * 55}}px;margin-left:{{weekAvailCourses[i].day*90+16}}rpx">
+        <view class="course-item-inner"  style="background-color:{{item.color}};height:{{(weekAvailCourses[i].courseEnd - weekAvailCourses[i].courseStart + 1) * 54}}px;">
+          <text style="font-size:12px">{{weekAvailCourses[i].courseName}}</text>
+          <text style="font-size:10px">@{{weekAvailCourses[i].classroom}}</text>
+        </view>
+      </view>
+    <!-- <view wx:for="{{tasklist}}" wx:key="id">
+      <view class="course-item" bindtap="showCardView" data-index="{{index}}" data-type="{{item.type}}" style="margin-left:{{item.day*90+1}}rpx;margin-top:{{(item.start-1)*50+1}}px;height:{{item.sections*100-4}}px;">
+        <view class="course-item-inner" style="height:{{item.sections*50-5}}px;background-color:{{courseColors[item.type]}}">
+          <text>{{item.course}}</text>
+          <text wx:if="{{item.type != 0}}">{{item.teacher}}</text>
+          <text wx:if="{{item.type != 0}}">{{item.place}}</text>
+        </view>
+      </view>
+    </view> -->
+  </view>
+</scroll-view>
+<i-tab-bar current="{{ current }}" bindchange="handleChange" color="green" fixed="true" style="z-index:9999;position:fixed">
+    <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="首页"></i-tab-bar-item>
+    <i-tab-bar-item key="curriculum" icon="createtask" current-icon="createtask_fill" title="课程表"></i-tab-bar-item>
+    <i-tab-bar-item key="infocenter" icon="mine" current-icon="mine_fill" title="个人中心"></i-tab-bar-item>
+</i-tab-bar>
